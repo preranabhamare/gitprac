@@ -6,12 +6,20 @@ function App() {
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
   const [result, setResult] = useState(0);
+  const [result2, setsubResult] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const sum = parseFloat(num1) + parseFloat(num2);
     setResult(sum);
   }
+
+  const handleSubtract = (e) => {
+    e.preventDefault();
+    const sub = parseFloat(num1) - parseFloat(num2);
+    setsubResult(sub);
+  }
+
   return (
     <>
     <form onSubmit = {handleSubmit}>
@@ -19,7 +27,9 @@ function App() {
       <input type ="number" placeholder="Enter Second Number" value={num2} onChange={(e) => setNum2(e.target.value)} ></input>
 
       <button type='submit'>Add</button>
+      <button type='button' onClick={handleSubtract}>Sub</button>
       <h2>Result : {result}</h2>
+      <h2>Subtract Result: {result2}</h2>
       </form></>
   );
 }
